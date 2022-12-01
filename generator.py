@@ -21,10 +21,6 @@ if __name__ == '__main__':
             if x.endswith(".tex"):
                 files.append(x)
 
-        # slight caveat: random may not necessarily use all files from the problem folder
         doc.append(Command('input', 'exam1/problem1/' + random.choice(files)))
-
-        # with doc.create(Subsection('A subsection')):
-        #     doc.append('subsection text')
 
     doc.generate_pdf('exam-' + str(seed), compiler_args=["-shell-escape"], clean_tex=False)
